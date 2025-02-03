@@ -2,20 +2,20 @@
 #include <string.h>
 
 int main() {
-    int populacao, turismo;
-    float pib, area;
+    int populacao, turismo; // apenas números inteiros
+    float pib, area;    // números com posiveis casas decimais. 
     char nome[50];
 
     printf("Super Trunfo Países\n");
 
     printf("Nome da Cidade: \n");
-    fgets(nome, 50, stdin);
-    nome[strcspn(nome, "\n")] = 0; // Remove o \n lido pelo fgets
+    fgets(nome, 50, stdin);          // Nessa linha tive ajuda do chat gpt, pra poder usar nomes compostos de cidades, como São Paulo, Rio de Janeiro, etc. Ele recomendou o uso desse código para conseguir isso.
+    nome[strcspn(nome, "\n")] = 0;  // utilizando apenas o printf e scanf,ao escrever um nome composto, o programa zerava automaticamente todas as outras variaveis, essa mudança no código permitiu o uso de nomes compostos.
 
     printf("População: \n");
     scanf("%d", &populacao);
 
-    printf("PIB: \n");
+    printf("PIB: \n");              
     scanf("%f", &pib);
 
     printf("Número de Pontos Turísticos: \n");
@@ -27,9 +27,9 @@ int main() {
     printf("\n=== Dados da Cidade ===\n");
     printf("Nome: %s \n", nome);
     printf("População: %d \n", populacao);
-    printf("PIB: %.2f \n", pib);
+    printf("PIB: %f \n", pib);
     printf("Número de Pontos Turísticos: %d \n", turismo);
-    printf("Área da Cidade (km²): %.2f\n", area);
+    printf("Área da Cidade (km²): %f\n", area);
 
     return 0;
 }
