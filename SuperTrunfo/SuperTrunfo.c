@@ -3,10 +3,10 @@
 
 int main() {
     int populacao, turismo; // apenas números inteiros
-    float pib, area;    // números com posiveis casas decimais. 
+    float pib, area, capita, densidade;    // números com posiveis casas decimais. 
     char nome[50];
 
-    printf("Super Trunfo Países\n");
+    printf(" *** Super Trunfo Países *** \n");
 
     printf("Nome da Cidade: \n");
     fgets(nome, 50, stdin);          // Nessa linha tive ajuda do chat gpt, pra poder usar nomes compostos de cidades, como São Paulo, Rio de Janeiro, etc. Ele recomendou o uso desse código para conseguir isso.
@@ -24,12 +24,18 @@ int main() {
     printf("Área da cidade: \n");
     scanf("%f", &area);
 
+    capita = (float) pib / populacao;      // aqui foi adicionado o calculo para pib per capita e densidade demográfica, onde foi feito a conversão dos valores para float.
+
+    densidade = (float) populacao / area;
+
     printf("\n=== Dados da Cidade ===\n");
     printf("Nome: %s \n", nome);                               // aqui, é definido como a informação será impressa na tela através do comando printf. 
     printf("População: %d \n", populacao);                      
-    printf("PIB: %f \n", pib);
+    printf("PIB: %.2f \n", pib);
     printf("Número de Pontos Turísticos: %d \n", turismo);
-    printf("Área da Cidade (km²): %f\n", area);
+    printf("Área da Cidade (km²): %.2f\n", area);
+    printf("Densidade Populacional: %.2f \n", densidade);
+    printf("PIB per Capita: %.2f \n", capita);              
 
     return 0;
 }
